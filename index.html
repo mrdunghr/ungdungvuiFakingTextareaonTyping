@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng vui Faking Textarea on Typing</title>
+</head>
+<body>
+<center>
+    <h2>Type anthing slowly</h2>
+    <form name="form">
+        <textarea name="txt" cols="40" rows="10" onkeydown="typeTextarea();"></textarea>
+    </form>
+</center>
+</body>
+<script>
+    let array = []
+    let n = 0;
+    array[1]='T';
+    array[2]='Ô';
+    array[3]='I';
+    array[4]=' ';
+    array[5]='L';
+    array[6]='À';
+    array[7]=' ';
+    array[8]='M';
+    array[9]='Ộ';
+    array[10]='T';
+    array[11]=' ';
+    array[12]='Đ';
+    array[13]='Ứ';
+    array[14]='A';
+    array[15]=' ';
+    array[16]='N';
+    array[17]='G';
+    array[18]='Ố';
+    array[19]='C';
+    array[20]='!';
+    array[21]='!';
+    array[22]='!';
+    // console.log(array)
+    function typeTextarea(){
+        let t = document.form.txt.value; // xét form và lấy txt từ thẻ textarea
+        let j = t.length; // xem chiều dài của chuỗi nhập vào thẻ textarea
+        // console.log(document.form);
+        console.log(t);
+        console.log(j);
+        if (j > 0){
+            for (let i = 1; i <= j; i++){
+                n = n + array[i];
+                if (i == 22){
+                    document.form.txt.value = "";
+                    n = "";
+                }
+            }
+        }
+        document.form.txt.value = n;
+        n="";
+        setTimeout("typeTextarea()", 20000);
+        //return false;
+
+    }
+</script>
+</html>
